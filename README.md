@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+# FLOCK (TBD)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+**Člani skupine:** Žiga Modrić, Timotej Robavs
 
-## Get started
+## Opis:
 
-1. Install dependencies
+Aplikacija omogoča enostavno organizacijo vaj, izletov, dopustov in drugih dogodkov, pri čemer udeležencem omogoča izbiro terminov, ki jim najbolj ustrezajo. Namesto vnaprej določenih fiksnih datumov, aplikacija ponuja dinamično načrtovanje, kjer povabljeni izberejo med predlaganimi dnevi in urami, kar omogoča izbiro termina, ki ustreza večini.
 
-   ```bash
-   npm install
-   ```
+## Ogrodje in razvojno okolje:
 
-2. Start the app
+Pri projektu bomo uporabili **Android Studio** in **Rider (web API)**.
 
-   ```bash
-    npx expo start
-   ```
+## Funkcionalnosti:
 
-In the output, you'll find options to open the app in a
+1. **Prijava uporabnikov:** Vsak uporabnik lahko ustvari svoj račun z uporabniškim imenom, e-poštnim naslovom in geslom ali pa se prijavi s pomočjo Google računa.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+2. **Ustvarjanje dogodkov:** Uporabnik lahko ustvari nov dogodek, pri čemer vnese ime, trajanje, opis ter po potrebi doda lokacijo in obvezno opremo. Poleg tega določi časovni razpon dni, v katerih je dogodek mogoče izvesti, ter izbere ure za vsak dan znotraj tega obdobja. Uporabnik lahko tudi označi, da se dogodek ponovi na X dni/tednov/mesecov.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+3. **Ustvarjanje skupine:** Ob ustvarjanju dogodka se ustvari tudi skupina, v kateri uporabnik izbere prijatelje, ki jih želi povabiti. Izbrani prijatelji prejmejo obvestilo, da so bili dodani k dogodku.
 
-## Get a fresh project
+4. **Dodajanje prijateljev:** Uporabnik lahko doda prijatelje z iskanjem po njihovem uporabniškem imenu ali e-poštnem naslovu. Povabljeni prijatelj lahko prošnjo sprejme ali zavrne.
 
-When you're ready, run:
+5. **Vnos ustreznih terminov:** Udeleženci skupine oziroma dogodka lahko vnesejo dan in uro, ki jim ustrezata, ali določijo razpon dni in ur, ko so na voljo. Prav tako lahko zavrnejo udeležbo na dogodku, če se ga ne morejo udeležiti.
 
-```bash
-npm run reset-project
-```
+6. **Pregled dogodka:** Med potekom dogodka lahko uporabniki spremljajo termine, ki so jih izbrali drugi udeleženci, čas, ki ostaja do zaključka izbora, ter splošne informacije o dogodku, vključno z imenom, opisom, lokacijo in časovnimi podatki (datum, ura ali časovni razpon).
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+7. **Obvestila in posodobitve:** Uporabniki so obveščeni, ko jih nekdo doda med prijatelje, ko so povabljeni na dogodek, ob zaključku glasovanja za dogodek (skupaj z izbranim terminom) in z opomnikom, če še niso oddali svojega glasu. Prav tako prejmejo opomnik o prihajajočem dogodku, na primer en dan pred začetkom.
 
-## Learn more
+8. **Samodejno določanje najbolj ustreznega termina:** Aplikacija samodejno izbere najboljši termin za dogodek glede na prisotnost uporabnikov.
 
-To learn more about developing your project with Expo, look at the following resources:
+9. **Izvoz dogodka v koledar:** Uporabnik lahko po zaključku glasovanja izvozi dogodek v svoj koledar.
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## Primeri uporabe:
 
-## Join the community
+1. **Dogovarjanje za družabni dogodek s prijatelji:** Skupina prijateljev želi organizirati družabno srečanje, vendar imajo vsi različne urnike. Eden izmed prijateljev ustvari dogodek, vpiše možnosti terminov in doda lokacijo. Povabljeni prijatelji izberejo dneve in ure, ki jim najbolj ustrezajo. Aplikacija določi termin z največjim številom prisotnih in pošlje obvestilo o dogovoru.
 
-Join our community of developers creating universal apps.
+2. **Načrtovanje družinskega izleta:** Organizator načrtuje vikend izlet in želi vključiti vse člane družine. Ustvari dogodek z opisom, predlaga nekaj možnosti terminov čez vikend ter povabi družinske člane. Vsak označi, kdaj je prost, aplikacija pa določi najboljši termin in obvesti vse člane. Dan pred izletom aplikacija pošlje opomnik.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+3. **Sestanki za študijski projekt:** Skupina študentov dela na projektu in potrebuje redne sestanke. En član skupine ustvari dogodek za tedenski sestanek, doda predlagane termine ter povabi sošolce. Ko vsi izberejo svoje možnosti, aplikacija določi termin, ki ustreza večini, in ga doda v koledar vsakega člana.
+
+4. **Načrtovanje teambuildinga v podjetju:** Za učinkovito organizacijo teambuildinga v podjetju aplikacija omogoča preprosto usklajevanje terminov. Vodja ustvari dogodek za teambuilding in določi razpoložljive dni ter ure. Zaposleni v aplikacijo vpišejo svoje preferenčne termine glede razpoložljivosti, nato pa aplikacija samodejno izbere termin, ki ustreza največ zaposlenim, in pošlje vsem obvestilo o potrjenem datumu.
+
+5. **Organizacija tedenskih vaj za športni klub:** Trener ustvarja dogodek za tedenske vaje. Določi časovni razpon več dni in ur ter povabi člane kluba, ki izberejo termine, ki jim najbolj ustrezajo. Aplikacija nato samodejno izbere termin z največjo prisotnostjo, uporabniki pa prejmejo obvestilo in lahko dogodek izvozijo v svoj koledar.
+
+6. **Planiranje občasnih sestankov znotraj društva:** Predsednik društva načrtuje redne mesečne sestanke. Za vsak mesec ustvari dogodek z več termini in povabi člane društva. Ti izberejo, kdaj so prosti, aplikacija pa določi najboljši termin za mesečni sestanek in pošlje vsa obvestila ter omogoči izvoz dogodka v koledar.
+
+7. **Načrtovanje delavnic za tečaj:** Inštruktor želi organizirati delavnice za tečaj in omogoča, da udeleženci glasujejo o terminih. Določi nekaj predlaganih datumov in ur, povabi vse udeležence, ki označijo svoje možnosti. Aplikacija na podlagi prisotnosti določi termin, ki ustreza večini, udeleženci pa prejmejo opomnik in možnost izvoza v koledar.
