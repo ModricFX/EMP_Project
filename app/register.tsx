@@ -10,6 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import AppwriteService from './services/appwriteservice';
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -21,14 +22,14 @@ export default function RegisterScreen() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isFocused, setIsFocused] = useState(false); // Track focus on input fields
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     if (
-      !name ||
-      !surname ||
-      !username ||
-      !email ||
-      !password ||
-      !confirmPassword
+        !name ||
+        !surname ||
+        !username ||
+        !email ||
+        !password ||
+        !confirmPassword
     ) {
       Alert.alert('Error', 'All fields are required.');
       return;
@@ -39,12 +40,17 @@ export default function RegisterScreen() {
       return;
     }
 
-    // Add registration logic here
-    Alert.alert(
-      'Success',
-      `Account created for ${name} ${surname} with username "${username}".`
-    );
-    router.push('/login');
+    try {
+      await AppwriteService.register(email, password, name);
+      Alert.alert(
+          'Success',
+          `Account created for ${name} ${surname} with username "${username}".`
+      );
+      router.push('/login');
+    } catch (error) {
+      // @ts-ignore
+      Alert.alert('Registration Error', error.message || 'An error occurred during registration.');
+    }
   };
 
   return (

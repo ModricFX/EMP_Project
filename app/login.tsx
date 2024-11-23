@@ -10,6 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
+import AppWriteService from './services/appwriteservice';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -23,25 +24,31 @@ export default function LoginScreen() {
     return emailRegex.test(input);
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!emailOrUsername || !password) {
       Alert.alert('Error', 'Both fields are required.');
       return;
     }
 
-    if (isEmail(emailOrUsername)) {
-      // If it's an email, handle login with email
-      alert(`Logged in with email: ${emailOrUsername}`);
-    } else {
-      // If it's a username, handle login with username
-      alert(`Logged in with username: ${emailOrUsername}`);
-    }
+    try {
+ 
 
-    // Here you would add the login logic to authenticate the user
-    // For example, make an API call to check the credentials
-    // After successful login, navigate to the next screen
-    // router.push('/home');
+      console.log('Attempting login with email:', emailOrUsername);
+
+      // Log in using email and password
+      const session = await AppWriteService.login(emailOrUsername, password);
+      console.log('Login successful:', session);
+
+      // Redirect to the dashboard
+      router.push('/dashboard');
+    } catch (error) {
+      console.error('Login failed:', error);
+      // @ts-ignore
+      Alert.alert('Login Failed', error.message || 'Invalid email or password. Please try again.');
+    }
   };
+
+
 
   return (
     <KeyboardAvoidingView

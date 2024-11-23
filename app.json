@@ -38,6 +38,8 @@
       "typedRoutes": true
     },
     "extra": {
+      "APPWRITE_ENDPOINT": "https://cloud.appwrite.io/v1",
+      "APPWRITE_PROJECT_ID": "673f1335002fae698037",
       "router": {
         "origin": false
       },
@@ -45,6 +47,6 @@
         "projectId": "c12573fb-63b1-4cf9-bf73-f4f5604c5caf"
       }
     },
-    "owner": "modricfx"
+    "owner": "flock"
   }
 }
