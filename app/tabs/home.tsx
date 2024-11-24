@@ -8,11 +8,12 @@ export default function Home() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<Models.User<{}> | null>(null); // Use Appwrite's User type
     const router = useRouter();
+    const appwriteService = new AppwriteService();
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const currentUser = await AppwriteService.getCurrentUser();
+                const currentUser = await appwriteService.getCurrentUser();
                 setUser(currentUser); // Set the user with Appwrite's type
             } catch (error) {
                 console.error('Error fetching user:', error);
@@ -27,7 +28,7 @@ export default function Home() {
 
     const handleLogout = async () => {
         try {
-            await AppwriteService.logout();
+            await appwriteService.logout();
             router.push('/login'); // Redirect to login after logout
         } catch (error) {
             console.error('Error logging out:', error);

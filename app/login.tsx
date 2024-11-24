@@ -17,6 +17,7 @@ export default function LoginScreen() {
   const [emailOrUsername, setEmailOrUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isFocused, setIsFocused] = useState(false); // Track if any input is focused
+  const appwriteService = new AppWriteService();
 
   // Validate if the input is an email
   const isEmail = (input: string) => {
@@ -34,7 +35,7 @@ export default function LoginScreen() {
       console.log('Attempting login with email:', emailOrUsername);
 
       // Log in using email and password
-      const session = await AppWriteService.login(emailOrUsername, password);
+      const session = await appwriteService.login(emailOrUsername, password);
       console.log('Login successful:', session);
       router.replace("/tabs/home");
       

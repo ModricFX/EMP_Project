@@ -21,6 +21,8 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isFocused, setIsFocused] = useState(false); // Track focus on input fields
+  
+    const appwriteService = new AppwriteService();
 
   const handleRegister = async () => {
     if (
@@ -41,7 +43,7 @@ export default function RegisterScreen() {
     }
 
     try {
-      await AppwriteService.register(email, password, name);
+      await appwriteService.register(email, password, name, username);
       Alert.alert(
           'Success',
           `Account created for ${name} ${surname} with username "${username}".`
