@@ -1,10 +1,10 @@
 ﻿import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Button, ActivityIndicator } from 'react-native';
-import AppwriteService from './services/appwriteservice';
+import AppwriteService from '../services/appwriteservice';
 import { useRouter } from 'expo-router';
 import { Models } from 'appwrite'; // Import Models namespace
 
-export default function Dashboard() {
+export default function Home() {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<Models.User<{}> | null>(null); // Use Appwrite's User type
     const router = useRouter();

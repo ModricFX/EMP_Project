@@ -31,16 +31,13 @@ export default function LoginScreen() {
     }
 
     try {
- 
-
       console.log('Attempting login with email:', emailOrUsername);
 
       // Log in using email and password
       const session = await AppWriteService.login(emailOrUsername, password);
       console.log('Login successful:', session);
-
-      // Redirect to the dashboard
-      router.push('/dashboard');
+      router.replace("/tabs/home");
+      
     } catch (error) {
       console.error('Login failed:', error);
       // @ts-ignore

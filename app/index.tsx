@@ -26,7 +26,7 @@ export default function HomePage() {
     useEffect(() => {
         if (!loading) {
             if (isLoggedIn) {
-                router.push('/dashboard'); // Redirect to dashboard or another page for logged-in users
+                router.replace("/tabs/home");
             } else {
                 router.push('/login'); // Redirect to login page for not-logged-in users
             }
