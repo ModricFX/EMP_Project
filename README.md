@@ -1,7 +1,24 @@
-# FLOCK (TBD)
-
+# FLOCK
 **Člani skupine:** Žiga Modrić, Timotej Robavs
 
+## Setup
+
+1. Install dependencies
+
+   ```bash
+   npm install
+   ```
+2. Start the app in development mode (with development settings)
+
+   ```bash
+    npm run start-development
+   ```
+3. Start the app in production mode (with production settings)
+
+   ```bash
+    npm run start-production
+   ```
+   
 ## Opis:
 
 Aplikacija omogoča enostavno organizacijo vaj, izletov, dopustov in drugih dogodkov, pri čemer udeležencem omogoča izbiro terminov, ki jim najbolj ustrezajo. Namesto vnaprej določenih fiksnih datumov, aplikacija ponuja dinamično načrtovanje, kjer povabljeni izberejo med predlaganimi dnevi in urami, kar omogoča izbiro termina, ki ustreza večini.
@@ -45,3 +62,4 @@ Pri projektu bomo uporabili **Android Studio** in **Rider (web API)**.
 6. **Planiranje občasnih sestankov znotraj društva:** Predsednik društva načrtuje redne mesečne sestanke. Za vsak mesec ustvari dogodek z več termini in povabi člane društva. Ti izberejo, kdaj so prosti, aplikacija pa določi najboljši termin za mesečni sestanek in pošlje vsa obvestila ter omogoči izvoz dogodka v koledar.
 
 7. **Načrtovanje delavnic za tečaj:** Inštruktor želi organizirati delavnice za tečaj in omogoča, da udeleženci glasujejo o terminih. Določi nekaj predlaganih datumov in ur, povabi vse udeležence, ki označijo svoje možnosti. Aplikacija na podlagi prisotnosti določi termin, ki ustreza večini, udeleženci pa prejmejo opomnik in možnost izvoza v koledar.
+
