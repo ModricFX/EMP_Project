@@ -59,7 +59,7 @@ export default class AppwriteService {
         } catch (error) {
             console.error('Login failed:', error); // Log the error for debugging
             // @ts-ignore
-            throw new Error(error.message || 'Login failed. Please try again.');
+            throw new Error(this.extractErrorMessage(error) || 'Login failed. Please try again.');
         }
     }
 
@@ -67,7 +67,20 @@ export default class AppwriteService {
         return this.account.deleteSession('current');
     }
 
+    private extractErrorMessage(error: any): string | null {
+        return error?.message || null;
+    }
+
     async getCurrentUser() {
-        return this.account.get();
+        try {
+            return await this.account.get();
+        } catch (error) {
+            console.error('Failed to fetch user:', error);
+            throw new Error(this.extractErrorMessage(error) || 'Unable to fetch user details.');
+        }
+    }
+
+    static getCurrentUser() {
+        return new AppwriteService().getCurrentUser();
     }
 }
