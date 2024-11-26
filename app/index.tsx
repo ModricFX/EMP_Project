@@ -7,11 +7,12 @@ export default function HomePage() {
     const [loading, setLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const router = useRouter();
+    const appwriteService = new AppwriteService();
 
     useEffect(() => {
         const checkLoginStatus = async () => {
             try {
-                const user = await AppwriteService.getCurrentUser();
+                const user = await appwriteService.getCurrentUser();
                 setIsLoggedIn(!!user);
             } catch (error) {
                 setIsLoggedIn(false);

@@ -79,8 +79,4 @@ export default class AppwriteService {
             throw new Error(this.extractErrorMessage(error) || 'Unable to fetch user details.');
         }
     }
-
-    static getCurrentUser() {
-        return new AppwriteService().getCurrentUser();
-    }
 }
