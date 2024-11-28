@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import AppWriteService from './services/appwriteservice';
+import AppWriteService from '../services/appwriteservice';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -93,7 +93,7 @@ export default function LoginScreen() {
           Don't have an account?{' '}
           <Text
             style={styles.link}
-            onPress={() => router.push('/register')}
+            onPress={() => router.push('/auth/register')}
           >
             Register Now
           </Text>

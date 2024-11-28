@@ -17,7 +17,7 @@ export default function Home() {
                 setUser(currentUser); // Set the user with Appwrite's type
             } catch (error) {
                 console.error('Error fetching user:', error);
-                router.push('/login'); // Redirect to login on error
+                router.push('/auth/login'); // Redirect to login on error
             } finally {
                 setLoading(false);
             }
@@ -29,7 +29,7 @@ export default function Home() {
     const handleLogout = async () => {
         try {
             await appwriteService.logout();
-            router.push('/login'); // Redirect to login after logout
+            router.push('/auth/login'); // Redirect to login after logout
         } catch (error) {
             console.error('Error logging out:', error);
         }

@@ -15,6 +15,7 @@ export default function HomePage() {
                 const user = await appwriteService.getCurrentUser();
                 setIsLoggedIn(!!user);
             } catch (error) {
+                console.log('Error fetching user xxxxx:', error);
                 setIsLoggedIn(false);
             } finally {
                 setLoading(false);
@@ -29,7 +30,7 @@ export default function HomePage() {
             if (isLoggedIn) {
                 router.replace("/tabs/home");
             } else {
-                router.push('/login'); // Redirect to login page for not-logged-in users
+                router.push('/auth/login'); // Redirect to login page for not-logged-in users
             }
         }
     }, [loading, isLoggedIn]);

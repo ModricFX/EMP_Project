@@ -1,5 +1,5 @@
 ﻿import Constants from 'expo-constants';
-import { Client, Account, Databases, Query } from 'appwrite';
+import {Account, Client, Databases} from 'appwrite';
 
 interface Extra {
     apiEndpoint: string;
@@ -27,29 +27,8 @@ export default class AppwriteService {
     }
 
     async register(email: string, password: string, name: string, username: string) {
-        const databaseId = 'your_database_id'; // Zamenjajte z ID-jem vaše baze
-        const collectionId = 'usernames'; // ID zbirke "Usernames"
-
-        // Preverite, ali je uporabniško ime že zasedeno
-        const existingUsernames = await this.databases.listDocuments(databaseId, collectionId, [
-            Query.equal('username', username)
-        ]);
-
-        if (existingUsernames.total > 0) {
-            throw new Error('Uporabniško ime je že zasedeno.');
-        }
-
         // Ustvarite uporabniški račun
-        const user = await this.account.create('unique()', email, password, name);
-
-        // Shranite uporabniško ime v zbirko "Usernames"
-        await this.databases.createDocument(databaseId, collectionId, 'unique()', {
-            username: username,
-            userId: user.$id,
-            email: email
-        });
-
-        return user;
+        return await this.account.create('unique()', email, password, name);
     }
 
     async login(email: string, password: string) {

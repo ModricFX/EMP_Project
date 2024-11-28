@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import { useRouter } from 'expo-router';
-import AppwriteService from './services/appwriteservice';
+import AppwriteService from '../services/appwriteservice';
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -48,7 +48,7 @@ export default function RegisterScreen() {
           'Success',
           `Account created for ${name} ${surname} with username "${username}".`
       );
-      router.push('/login');
+      router.push('/auth/login');
     } catch (error) {
       // @ts-ignore
       Alert.alert('Registration Error', error.message || 'An error occurred during registration.');
@@ -142,7 +142,7 @@ export default function RegisterScreen() {
         {/* Footer Link */}
         <Text style={styles.footerText}>
           Already have an account?{' '}
-          <Text style={styles.link} onPress={() => router.push('/login')}>
+          <Text style={styles.link} onPress={() => router.push('/auth/login')}>
             Login here
           </Text>
         </Text>
